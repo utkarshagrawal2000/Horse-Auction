@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'auction/css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'auction/css/details.css' %}">
+    <title>Horse Details</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark ">
+        <a class="navbar-brand" style="margin-left: 4.5rem;" href="#">
+            <img src="{% static 'auction/img/3.svg' %}" alt="The Paddock">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-evenly;"> 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Auctions</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Sell your Horse</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Horse listing</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">About Us</a></li>
+                
+            </ul>
+            <form class="d-flex" role="search">
+                <a class="btn search-btn" >
+                    <img src="{% static 'auction/img/Vector1.svg' %}" alt="The search"></a>
+                {% comment %} <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> {% endcomment %}
+                <button class="btn btn-dark text-white border border-light" type="submit" style="width: 8.375rem; height: 2.72rem;">Login</button>
+              </form>
+            
+        </div>
+        {% comment %} <div class=" d-flex justify-content-around mx-5">
+            <a class="btn search-btn" >
+                <img src="{% static 'auction/img/Vector1.svg' %}" alt="The search"></a>
+            <a class="btn btn-dark text-white border border-light" style="width: 8.375rem; height: 2.72rem;" href="#">Login</a></li>
+        </div> {% endcomment %}
+    </nav>
+    <main> 
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Home > Across state line</h2>
+                </div>
+                <div class="col-md-9 auctype">
+                    <ul style="display: flex; flex-direction: row-reverse; list-style: none;">
+                        <li><a href="{% url 'listingview' %}">< Back to lising</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="horse-details"></div>
+            <div id="horse-bid-details"> </div>
+
+
+            <div id="horse-bid-details-video"> </div>
+            <div id="horse-bid-history"> </div>
+            <div id="live-auctions"> </div>
+
+        
+        
+                
+                
+                
+            </div>
+        </div>
+        
+        
+    
+
+
+        
+            
+        <div class="container mt-5">
+            <!-- Blogs Section -->
+            <div class="mt-5 mb-5">
+                <h2 style="text-align: center; font-size:50px;">Paddock Blogs</h2>
+                <div class="horsetitle-container mb-4">
+                    <img class="horsetitle" src="{% static 'auction/img/white-jumping-horse-outline.png' %}" alt="The Paddock">
+                </div>
+                <div class="row">
+                    {% comment %} <div class="col-md-4"></div> {% endcomment %}
+                    <div class="col-md ">
+                        <div class="card cc1">
+                            <img src="{% static 'auction/img/Rectangle 11.png' %}" alt="" class="image1" />
+                            <p>
+                                The Ultimate Guide to Online Horse Auction
+                            </p>
+                            <a href="#" class="button">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md ">
+                        <div class="card cc1" >
+                            <img src="{% static 'auction/img/Rectangle 12.png' %}" alt="" class="image1" />
+                            <p>
+                                The Ultimate Guide to Online Horse Auction
+                            </p>
+                            <a href="#" class="button">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md ">
+                        <div class="card cc1">
+                            <img src="{% static 'auction/img/Rectangle 11.png' %}" alt="" class="image1" />
+                            <p>
+                                The Ultimate Guide to Online Horse Auction
+                            </p>
+                            <a href="#" class="button">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                </div>
+                 
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">The Paddock</h5>
+                    <p>Join the #1 equine community today!</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Paddock</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Horse Listing</a></li>
+                        <li><a href="#" class="text-dark">About Us</a></li>
+                        <li><a href="#" class="text-dark">Contact Us</a></li>
+                        <li><a href="#" class="text-dark">Terms & Policies</a></li>
+                        <li><a href="#" class="text-dark">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Social Media</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Youtube</a></li>
+                        <li><a href="#" class="text-dark">Facebook</a></li>
+                        <li><a href="#" class="text-dark">Instagram</a></li>
+                        <li><a href="#" class="text-dark">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">5 Little Essex St, London, United Kingdom, WC2R 3LD</a></li>
+                        <li><a href="#" class="text-dark">020 7836 2347</a></li>
+                        <li><a href="#" class="text-dark">horse@paddock.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3">
+            © 2024 PADDOCK
+        </div>
+    </footer>
+    
+    
+    
+
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const id = localStorage.getItem('horseid');
+            console.log(id,'idd')
+
+            const fetchHorse = () => {
+                fetch(`http://127.0.0.1:8000/api/bids_detail/${id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const detailsContainer = document.getElementById('horse-bid-details');
+                        detailsContainer.innerHTML = `
+                            <div class="container mt-5">
+                                <div class="col">
+                                    <div class="custom-header" style="display: flex;justify-content: space-between;">
+                                        <div class="text-left">
+                                            <div>Current bid</div>
+                                            <div>${data.bid_amount}</div>
+                                            <div>by ${data.username}</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div>Starting On: ${data.auction_startdate}</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div>Ending On: ${data.auction_enddate}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching horse details:', error);
+                    });
+            };
+            const fetchbidhistory = () => {
+                fetch(`http://127.0.0.1:8000/api/bids?horse_id=${id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const detailsContainer = document.getElementById('horse-bid-history');
+                        console.log(detailsContainer);
+
+                        let bidHistoryHTML = `
+                            <h2 style="text-align: center; font-size:50px;">Bidding History</h2>
+                            <div class="horsetitle-container mb-4">
+                                <img class="horsetitle" src="{% static 'auction/img/white-jumping-horse-outline.png' %}" alt="The Paddock">
+                            </div>
+                            <div class="container mt-5">
+                                <div class="row">
+                                    <div class="col-md-6 overflow-auto" style="max-height: 21rem;">
+                                        <ul class="list-group">`;
+
+                        data.forEach(bid => {
+                            bidHistoryHTML += `
+                                <li class="list-group-item d-flex align-items-start">
+                                    <img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle me-3">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>User ${bid.user}</strong>
+                                                <small class="text-muted d-block">Location</small>
+                                            </div>
+                                            ${bid.bid_amount == data[0].bid_amount ? 
+                                                '<span class="badge bg-success">Highest Bid</span>' : 
+                                                bid.bid_amount == data[data.length-1].bid_amount ? 
+                                                '<span class="badge bg-warning">Starting Bid</span>' : 
+                                                ''
+                                            }
+                                        </div>
+                                        <div class="amount">$${parseFloat(bid.bid_amount).toLocaleString()}</div>
+                                        <div class="date-time">${new Date(bid.bid_time).toLocaleString()}</div>
+                                    </div>
+                                </li>`;
+                        });
+
+                        bidHistoryHTML += `
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card" style="min-height: 21rem;">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="${data[0].pic}" alt="Horse Image" style="width: -webkit-fill-available;height: 13rem;">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h2>Across State Lines</h2>
+                                                    <div class="bid-info">
+                                                        <span>Starting Bid</span>
+                                                        <span>$${parseFloat(data[data.length-1].bid_amount).toLocaleString()}</span>
+                                                    </div>
+                                                    <div class="bid-info">
+                                                        <span>Current Highest Bid</span>
+                                                        <span>$${parseFloat(data[0].bid_amount).toLocaleString()}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin: 1rem;">
+                                                <div class="bid-input">
+                                                    <input type="number" id="bid-amount1" placeholder="Enter your Bid Amount">
+                                                    <button id="another-bid-btn">Place Bid</button>
+                                                </div>
+                                                <div class="bid-note">
+                                                    (Enter more than or equal to: $${parseFloat(data[0].bid_amount).toLocaleString()})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+
+                        detailsContainer.innerHTML = bidHistoryHTML;
+
+                        // Add event listener for the new place bid button
+                        document.getElementById('another-bid-btn').addEventListener('click', () => {
+                            const bidAmount = parseFloat(document.getElementById('bid-amount1').value);
+                            if (isNaN(bidAmount)) {
+                                alert('Please enter a valid bid amount.');
+                                return;
+                            }
+                            handleBidPlacement(id, bidAmount);
+                        });
+
+                    })
+                    .catch(error => {
+                        console.error('Error fetching horse details:', error);
+                    });
+                    const token = localStorage.getItem('access_token');
+                    const handleBidPlacement = (horseId, bidAmount) => {
+                        fetch(`http://127.0.0.1:8000/api/bids_create/`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                horse: horseId,
+                                amount: bidAmount
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                alert('Bid placed successfully');
+                                fetchHorseDetails(); // Refresh the horse details
+                                fetchHorse(); // Refresh the bid details
+                                fetchbidhistory();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error placing bid:', error);
+                        });
+                    };
+            };
+            
+            
+            if (id) {
+                const token = localStorage.getItem('access_token');
+            
+                const fetchHorseDetails = () => {
+                    fetch(`http://127.0.0.1:8000/api/horse/${id}/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const detailsContainer = document.getElementById('horse-details');
+                            const detailsContainer1 = document.getElementById('horse-bid-details-video');
+                            detailsContainer.innerHTML = `
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="card">
+                                            <div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                                </div>
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item">
+                                                        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1000" height="600" src="${data.pic}" role="img"  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em"></text></img>
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1000" height="600" src="${data.pic}" role="img"  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em"></text></img>
+                                                    </div>
+                                                    <div class="carousel-item active">
+                                                        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1000" height="600" src="${data.pic}" role="img"  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em"></text></img>
+                                                    </div>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="card-content">
+                                            <h2><span style="text-decoration: underline;">Across</span> State Lines</h2>
+                                            <div class="details">
+                                                <div style="display: flex;justify-content: space-between;">
+                                                    <span><strong>Breed:</strong> ${data.breed}</span>
+                                                </div>
+                                                <div style="min-height: 18rem;">
+                                                    <p class="ppc">${data.description}</p>
+                                                </div>
+                                                <div class="bids">
+                                                    <h4>Auction time left</h4>
+                                                    <span id="days">00</span> days | 
+                                                    <span id="hours">00</span> hours | 
+                                                    <span id="minutes">00</span> minutes | 
+                                                    <span id="seconds">00</span> seconds
+                                                <div>
+                                                    <div style="margin-top: 2rem;">
+                                                        <h4>Place Your Bid</h4>
+                                                        <div class="bid-input">
+                                                            <input type="number" id="bid-amount" placeholder="Enter your Bid Amount">
+                                                            <button id="place-bid-btn">Place Bid</button>
+                                                        </div>
+                                                        (Enter more than or equal to: $${parseFloat(data.current_bid).toLocaleString()})
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            detailsContainer1.innerHTML = `
+                                <h2 style="text-align: center; font-size:50px;">Horse Detail</h2>
+                                <div class="horsetitle-container mb-4">
+                                    <img class="horsetitle" src="{% static 'auction/img/white-jumping-horse-outline.png' %}" alt="The Paddock">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card" style="max-height: 24rem;">
+                                            <img src="${data.pic}" alt="Horse Image" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Contact
+                                                </div>
+                                                <div class="col">
+                                                    ${data.contact}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Location
+                                                </div>
+                                                <div class="col">
+                                                    ${data.location}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Breed
+                                                </div>
+                                                <div class="col">
+                                                    ${data.breed}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Registered
+                                                </div>
+                                                <div class="col">
+                                                    Yes
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Age
+                                                </div>
+                                                <div class="col">
+                                                    ${data.age}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Sex
+                                                </div>
+                                                <div class="col">
+                                                    ${data.sex}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Colour
+                                                </div>
+                                                <div class="col">
+                                                    ${data.colour}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col fw-bold pb-3">
+                                                    Height
+                                                </div>
+                                                <div class="col">
+                                                    ${data.height}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // Add event listener for place bid button
+                            document.getElementById('place-bid-btn').addEventListener('click', () => {
+                                const bidAmount = parseFloat(document.getElementById('bid-amount').value);
+                                if (isNaN(bidAmount)) {
+                                    alert('Please enter a valid bid amount.');
+                                    return;
+                                }
+                                handleBidPlacement(id, bidAmount);
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error fetching horse details:', error);
+                        });
+                };
+                const handleBidPlacement = (horseId, bidAmount) => {
+                    fetch(`http://127.0.0.1:8000/api/bids_create/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            horse: horseId,
+                            amount: bidAmount
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            alert('Bid placed successfully');
+                            fetchHorseDetails(); // Refresh the horse details
+                            fetchHorse(); // Refresh the bid details
+                            fetchbidhistory();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error placing bid:', error);
+                    });
+                };
+            
+                fetchHorseDetails();
+                fetchHorse();
+                fetchbidhistory();
+            }
+
+
+                
+                            
+                
+            
+            
+            
+
+
+            const liveauction = () => {
+                fetch(`http://127.0.0.1:8000/api/live-auctions?horse_id=${id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const detailsContainer = document.getElementById('live-auctions');
+                        console.log(detailsContainer);
+            
+                        let liveauctionsHTML = `
+                            <h2 style="text-align: center; font-size:50px;">More Live Auctions</h2>
+                            <div class="horsetitle-container mb-4">
+                                <img class="horsetitle" src="{% static 'auction/img/white-jumping-horse-outline.png' %}" alt="The Paddock">
+                            </div>
+                            <div class="container mt-5">
+                                <div class="row">`
+            
+                        data.forEach(live => {
+                            liveauctionsHTML += 
+                            `
+                            <div class="col-md-4">
+                                <div class="card" >
+                                    <img src="${live.pic}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <span>Starting bid: ${live.price}</span>
+                                        <br>
+                                      <span>Started at: ${new Date(live.auction_startdate).toLocaleString()}</span>
+                                      <br>
+                                      <span>Location:${live.location}</span>
+                                    </div>
+                                  </div>
+                                  
+                            </div>`;
+                        });
+            
+                        liveauctionsHTML += `
+                                        </div>
+                                        </div>`;
+            
+                        detailsContainer.innerHTML = liveauctionsHTML;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching horse details:', error);
+                    });
+            }
+            liveauction();
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* Custom Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white !important;
+}
+.navbar {
+    background-color: #000000 !important;
+}
+
+.navbar-brand img {
+    width: 107px;
+    height: 54.93px;
+}
+
+.nav-link.btn {
+    margin-left: 10px;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li {
+    list-style: none;
+}

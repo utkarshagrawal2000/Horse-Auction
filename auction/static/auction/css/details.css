@@ -1,0 +1,172 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.card-content {
+    width: initial; /* Ensure it takes the full width available */
+    padding: 1rem; /* Add padding if needed */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.ppc {
+    word-wrap: break-word; /* Ensure long words break and wrap onto the next line */
+    overflow-wrap: break-word; /* Ensure long words break and wrap onto the next line */
+    white-space: normal; /* Ensure text wraps naturally */
+}
+
+.bids{
+    padding-top: 2rem;
+    border-top: 2px solid black;
+}
+
+.horsetitle-container {
+    text-align: center;
+    position: relative;
+}
+
+.horsetitle {
+    font-size: 3em;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding: 0 2em;
+}
+
+
+
+.horsetitle::before {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.horsetitle::after {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.horsetitle-container::before,
+.horsetitle-container::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8rem; 
+    height: 20px;
+    border-bottom: 2px solid #000 !important; 
+}
+
+.horsetitle-container::before {
+    left: 30rem; 
+}
+
+.horsetitle-container::after {
+    right: 30rem;
+}
+.card-footer {
+    background: #171717;
+    border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
+  }
+  
+  .card-header {
+    border-radius: 30px !important;
+    border: 0px;
+    background: #000000;
+  }
+  
+  .card-header img {
+    border-radius: 30px;
+  
+  }
+  
+  .para1{
+    position: absolute;
+    bottom: 8%;
+    font-weight: bold;
+    padding: 1rem;
+    font-size: 24px;
+  }
+
+
+ 
+.auction-card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.bid-info {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.bid-info span {
+    display: block;
+}
+.bid-info span:first-child {
+    font-size: 0.875rem;
+    color: #666;
+}
+.bid-input {
+    margin-top: 20px;
+}
+.bid-input input {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(100% - 120px);
+    display: inline-block;
+    vertical-align: middle;
+}
+.bid-input button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.bid-input button:hover {
+    background-color: #e6b800;
+}
+.bid-note {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 5px;
+}
+.cc1{
+    overflow: hidden;
+    position: relative;
+    min-height: 550px;
+}
+.cc1 img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cc1 a {
+    position: absolute;
+    z-index: 1;
+    color: white !important;
+    border: 3px solid white;
+    border-radius:6px;
+    padding: 0.5rem;
+    inset: auto auto 35px 11px;
+    text-decoration: none;
+
+  }
+  
+.cc1 p {
+    inset: auto auto 80px 30px;
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  } 

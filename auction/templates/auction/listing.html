@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'auction/css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'auction/css/listing.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark ">
+        <a class="navbar-brand" style="margin-left: 4.5rem;" href="#">
+            <img src="{% static 'auction/img/3.svg' %}" alt="The Paddock">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-evenly;"> 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Auctions</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Sell your Horse</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">Horse listing</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-dark text-white" href="#">About Us</a></li>
+                
+            </ul>
+            <form class="d-flex" role="search">
+                <a class="btn search-btn" >
+                    <img src="{% static 'auction/img/Vector1.svg' %}" alt="The search"></a>
+                {% comment %} <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> {% endcomment %}
+                <button class="btn btn-dark text-white border border-light" type="submit" style="width: 8.375rem; height: 2.72rem;">Login</button>
+              </form>
+            
+        </div>
+        {% comment %} <div class=" d-flex justify-content-around mx-5">
+            <a class="btn search-btn" >
+                <img src="{% static 'auction/img/Vector1.svg' %}" alt="The search"></a>
+            <a class="btn btn-dark text-white border border-light" style="width: 8.375rem; height: 2.72rem;" href="#">Login</a></li>
+        </div> {% endcomment %}
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <h2>Auctions</h2>
+            </div>
+            <div class="col-md-9 auctype">
+                <ul style="display: flex; flex-direction: row-reverse; list-style: none;">
+                    <li><a>Live Auction</a></li>
+                    <li><a>Upcoming Auction</a></li>
+                    <li><a>Sold</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group">
+                    <!-- Categories Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#categoriesFilter">CATEGORIES
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="categoriesFilter" class="collapse">
+                        <div class="list-group-item heading">
+                          <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="horsesPonies" data-category="category" value="Horses & Ponies" name="categoryFilter">
+                            <label class="custom-control-label" for="horsesPonies">Horses & Ponies</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="allRounders" data-category="category" value="All Rounders" name="categoryFilter">
+                            <label class="custom-control-label" for="allRounders">All Rounders</label>
+                          </div>
+                          
+                          <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="broodmares" data-category="category" value="Broodmares" name="categoryFilter">
+                            <label class="custom-control-label" for="broodmares">Broodmares</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="dressage" data-category="category" value="Dressage" name="categoryFilter">
+                            <label class="custom-control-label" for="dressage">Dressage</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="driving" data-category="category" value="Driving" name="categoryFilter">
+                            <label class="custom-control-label" for="driving">Driving</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="eventers" data-category="category" value="Eventers" name="categoryFilter">
+                            <label class="custom-control-label" for="eventers">Eventers</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="exRaceHorses" data-category="category" value="Ex Race Horses" name="categoryFilter">
+                            <label class="custom-control-label" for="exRaceHorses">Ex Race Horses</label>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Sex Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#sexFilter">SEX
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="sexFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="male" data-category="sex" value="Male" name='sexfilt'>
+                                <label class="custom-control-label" for="male">Male</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="female" data-category="sex" value="Female" name='sexfilt'>
+                                <label class="custom-control-label" for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Age Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#ageFilter">AGE
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="ageFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="foal" data-category="age" value="Foal" name='agefilt'>
+                                <label class="custom-control-label" for="foal">Foal</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="yearling" data-category="age" value="Yearling" name='agefilt'>
+                                <label class="custom-control-label" for="yearling">Yearling</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="adult" data-category="age" value="Adult" name='agefilt'>
+                                <label class="custom-control-label" for="adult">Adult</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="senior" data-category="age" value="Senior" name='agefilt'>
+                                <label class="custom-control-label" for="senior">Senior</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Height Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#heightFilter">HEIGHT
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="heightFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="under14" data-category="height" value="Under 14 hands" name='heightfilt'>
+                                <label class="custom-control-label" for="under14">Under 14 hands</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="between14and16" data-category="height" value="14 - 16 hands" name='heightfilt'>
+                                <label class="custom-control-label" for="between14and16">14 - 16 hands</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="over16" data-category="height" value="Over 16 hands" name='heightfilt'>
+                                <label class="custom-control-label" for="over16">Over 16 hands</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Colour Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#colourFilter">COLOUR
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="colourFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="bay" data-category="colour" value="Bay" name='colourfilt'>
+                                <label class="custom-control-label" for="bay">Bay</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="chestnut" data-category="colour" value="Chestnut" name='colourfilt'>
+                                <label class="custom-control-label" for="chestnut">Chestnut</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="grey" data-category="colour" value="Grey" name='colourfilt'>
+                                <label class="custom-control-label" for="grey">Grey</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="black" data-category="colour" value="Black" name='colourfilt'>
+                                <label class="custom-control-label" for="black">Black</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Breed Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#breedFilter">BREED
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="breedFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="thoroughbred" data-category="breed" value="Thoroughbred" name='breedfilt'>
+                                <label class="custom-control-label" for="thoroughbred">Thoroughbred</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="arabian" data-category="breed" value="Arabian" name='breedfilt'>
+                                <label class="custom-control-label" for="arabian">Arabian</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="quarterHorse" data-category="breed" value="Quarter Horse" name='breedfilt'>
+                                <label class="custom-control-label" for="quarterHorse">Quarter Horse</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="other" data-category="breed" value="Other" name='breedfilt'>
+                                <label class="custom-control-label" for="other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Location Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#locationFilter">LOCATION
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="locationFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="usa" data-category="location" value="USA" name='locationfilt'>
+                                <label class="custom-control-label" for="usa">USA</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="canada" data-category="location" value="Canada" name='locationfilt'>
+                                <label class="custom-control-label" for="canada">Canada</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="europe" data-category="location" value="Europe" name='locationfilt'>
+                                <label class="custom-control-label" for="europe">Europe</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="otherLocation" data-category="location" value="Other" name='locationfilt'>
+                                <label class="custom-control-label" for="otherLocation">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Price Filter -->
+                    <div class="list-group-item filter" data-toggle="collapse" data-target="#priceFilter">PRICE
+                        <span class="collapse-icon"><i class="fa fa-plus" aria-hidden="true" style="float: right;"></i></span>
+                    </div>
+                    <div id="priceFilter" class="collapse">
+                        <div class="list-group-item heading">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="under5000" data-category="price_lt" value="5000" name='pricefilt'>
+                                <label class="custom-control-label" for="under5000">under5000</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="under10000" data-category="price_lt" value="10000" name='pricefilt'>
+                                <label class="custom-control-label" for="under10000">Under 10000</label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Auction Listings -->
+            <div class="col-md-9 overflow-auto"  style="max-height: 50rem;" id="results">
+                <div class="card">
+                    <img src="{% static "auction/img/1.svg" %}" alt="Horse Image">
+                    <div class="card-content">
+                        <h2><span style="text-decoration: underline;">Across</span> State Lines</h2>
+                        <div class="details">
+                            <div style="display: flex;justify-content: space-between;">
+                                <span><strong>Breed:</strong> Crossbred</span>
+                                <span><strong>Height:</strong> 14.1</span>
+                                <span><strong>Colour:</strong> Brown</span>
+                                <span><strong>Age:</strong> 9 Years</span>
+                                <span><strong>Sex:</strong> Mare</span>
+                            </div>
+                            <span><strong>Location:</strong> Silver Springs, FL</span>
+                            <span><strong>Contact:</strong> Jhon Parker (352) 123-1234</span>
+                        
+                            <div class="bids">
+                            <div>
+                                <span><strong>Starting Bid:</strong></span>
+                                <span>$2200</span>
+                            </div>
+                            <div>
+                                <span><strong>Current Bid:</strong></span>
+                                <span>$2800</span>
+                            </div>
+                            <div class="button">
+                                <button>Details</button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blogs Section -->
+        <div class="mt-5 mb-5">
+            <h2 style="text-align: center; font-size:50px;">Paddock Blogs</h2>
+            <div class="horsetitle-container mb-4">
+                <img class="horsetitle" src="{% static 'auction/img/white-jumping-horse-outline.png' %}" alt="The Paddock">
+            </div>
+            <div class="row">
+                {% comment %} <div class="col-md-4"></div> {% endcomment %}
+                <div class="col-md ">
+                    <div class="card cc1">
+                        <img src="{% static 'auction/img/Rectangle 11.png' %}" alt="" class="image1" />
+                        <p>
+                            The Ultimate Guide to Online Horse Auction
+                        </p>
+                        <a href="#" class="button">
+                            Learn More 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md ">
+                    <div class="card cc1" >
+                        <img src="{% static 'auction/img/Rectangle 12.png' %}" alt="" class="image1" />
+                        <p>
+                            The Ultimate Guide to Online Horse Auction
+                        </p>
+                        <a href="#" class="button">
+                            Learn More 
+                        </a>
+                    </div>
+                </div>
+             
+                <div class="col-md ">
+                    <div class="card cc1">
+                        <img src="{% static 'auction/img/Rectangle 13.png' %}" alt="" class="image1" />
+                        <p>
+                            The Ultimate Guide to Online Horse Auction
+                        </p>
+                        <a href="#" class="button">
+                            Learn More 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            </div>
+             
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">The Paddock</h5>
+                    <p>Join the #1 equine community today!</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Paddock</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Horse Listing</a></li>
+                        <li><a href="#" class="text-dark">About Us</a></li>
+                        <li><a href="#" class="text-dark">Contact Us</a></li>
+                        <li><a href="#" class="text-dark">Terms & Policies</a></li>
+                        <li><a href="#" class="text-dark">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Social Media</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Youtube</a></li>
+                        <li><a href="#" class="text-dark">Facebook</a></li>
+                        <li><a href="#" class="text-dark">Instagram</a></li>
+                        <li><a href="#" class="text-dark">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">5 Little Essex St, London, United Kingdom, WC2R 3LD</a></li>
+                        <li><a href="#" class="text-dark">020 7836 2347</a></li>
+                        <li><a href="#" class="text-dark">horse@paddock.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3">
+            © 2024 PADDOCK
+        </div>
+    </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.list-group-item[data-toggle="collapse"]').click(function() {
+                var icon = $(this).find('.collapse-icon i');
+                icon.toggleClass('fas fa-plus fas fa-minus'); // Toggle plus/minus icons
+            });
+        });
+        
+        function saveOrUpdateData(key, value) {
+            const existingValue = localStorage.getItem(key);
+            if (existingValue) {
+                // Key exists, update the value
+                localStorage.setItem(key, value);
+            } else {
+                // Key doesn't exist, save the new data
+                localStorage.setItem(key, value);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterElements = document.querySelectorAll('.custom-control-input');
+        
+            filterElements.forEach(element => {
+                element.addEventListener('change', applyFilters);
+            });
+        
+            function applyFilters() {
+                const filters = {};
+        
+                filterElements.forEach(element => {
+                    if (element.checked) {
+                        const category = element.getAttribute('data-category');
+                        if (!filters[category]) {
+                            filters[category] = [];
+                        }
+                        filters[category].push(element.value);
+                    }
+                });
+        
+                const queryString = new URLSearchParams(filters).toString();
+                const apiUrl = `/api/horses/?${queryString}`;
+        
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching filtered results:', error);
+                    });
+            }
+        
+            function displayResults(data) {
+                const resultsContainer = document.getElementById('results');
+                resultsContainer.innerHTML = '';
+        
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+        
+                    card.innerHTML = `
+                        <img src="${item.pic}" alt="Horse Image">
+                        <div class="card-content">
+                            <h2><span style="text-decoration: underline;">Across State Lines</span></h2>
+                            <div class="details">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span><strong>Breed:</strong> ${item.breed}</span>
+                                    <span><strong>Height:</strong> ${item.height}</span>
+                                    <span><strong>Colour:</strong> ${item.colour}</span>
+                                    <span><strong>Age:</strong> ${item.age}</span>
+                                    <span><strong>Sex:</strong> ${item.sex}</span>
+                                </div>
+                                <span><strong>Location:</strong> ${item.location}</span>
+                                <span><strong>Contact:</strong> ${item.contact}</span>
+                                
+                                <div class="bids">
+                                    <div>
+                                        <span><strong>Starting Bid:</strong></span>
+                                        <span>${item.price}</span>
+                                    </div>
+                                    <div>
+                                        <span><strong>Current Bid:</strong></span>
+                                        <span>${item.current_bid}</span>
+                                    </div>
+                                    <div class="button">
+                                        <button data-id="${item.id}">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    resultsContainer.appendChild(card);
+                });
+        
+                document.querySelectorAll('.button button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        saveOrUpdateData('horseid', id);
+                        window.location.href = `/api/horses_detail/`;
+                    });
+                });
+            }
+        
+            // Call applyFilters with default parameters on page load
+            applyFilters();
+        });
+        
+    </script>
+</body>
+</html>
