@@ -44,12 +44,12 @@ pip install -r requirements.txt
 ```
 <br>
 
-Step 5:
+Step 4:
 
 run the following commands:
 
 ```
-
+python manage.py collectstatic
 python manage.py runserver
 ```
 
