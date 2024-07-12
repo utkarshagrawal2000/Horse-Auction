@@ -26,13 +26,16 @@ class HorseSerializer(serializers.ModelSerializer):
 
 class BidSerializer(serializers.ModelSerializer):
     pic = serializers.SerializerMethodField()
+    username = serializers.SerializerMethodField()
     class Meta:
         model = Bid
-        fields = ['pic','user','bid_amount', 'bid_time']
+        fields = ['pic','username','bid_amount', 'bid_time']
 
     def get_pic(self, obj):
         return obj.horse.pic.url
-
+    def get_username(self, obj):
+        return obj.user.username
+    
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
