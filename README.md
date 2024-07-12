@@ -14,7 +14,7 @@ Horse Auction
 
 ### Rationale
 
-I've used Django Rest Framework (DRF) to create APIs and AJAX to consume them within Django templates for demonstration purposes. However, for production, I plan to use React for the frontend. Alternatively, if I opt for a Django-based frontend, I'll directly pass data using Django's context instead of relying on APIs.
+## I've used Django Rest Framework (DRF) to create APIs and AJAX to consume them within Django templates for demonstration purposes. However, for production, I plan to use React for the frontend. Alternatively, if I opt for a Django-based frontend, I'll directly pass data using Django's context instead of relying on APIs.
 
 
 ### How to run the application.
