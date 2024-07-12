@@ -6,6 +6,7 @@ Horse Auction
 
 - User Registration and Login
 - User Authentication with JWT
+- Login and Signup page
 - Horse Listing page
 - Horse Detail and Bidding page 
 - RESTful API for frontend interaction
@@ -22,7 +23,7 @@ Step 1:
 
 * Clone the application to your local machine
  ```
-clone https://github.com/utkarshagrawal2000/Horse-Auction
+git clone[https://github.com/utkarshagrawal2000/Horse-Auction
 ```
 * Go into Auction directory in Horseauction
 
