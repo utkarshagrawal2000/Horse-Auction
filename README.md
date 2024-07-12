@@ -33,7 +33,7 @@ Step 2:
 
 ``` 
 python -m venv venv
-source venv/bin/activate   # On Windows use ./venv/Scripts/activate
+./venv/Scripts/activate
 ```
 <br>
 
