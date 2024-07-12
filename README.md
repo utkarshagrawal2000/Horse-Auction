@@ -23,7 +23,7 @@ Step 1:
 
 * Clone the application to your local machine
  ```
-git clone[https://github.com/utkarshagrawal2000/Horse-Auction
+git clone https://github.com/utkarshagrawal2000/Horse-Auction
 ```
 * Go into Auction directory in Horseauction
 
